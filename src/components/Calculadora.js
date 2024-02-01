@@ -9,7 +9,7 @@ export default function Calculadora({valorModo, valorMenu}){
     const [numero, setNumero] = useState('')
     const [operacao, setOpercao] = useState('')
     const [listaOperacoes, setListaOperacoes] = useState([])
-    const [paren, setParen] = useState(false)
+    const [paren, setParen] = useState(true)
 
     const formataConta = (numero) => {
         return {id: new Date().getTime(), conta:`${numero} = ${eval(numero)}`}
