@@ -3,25 +3,28 @@ import { View, Text } from "react-native";
 import Botao from "./botao/Botao";
 
 import styles from "./styles";
+import MenuHist from "./MenuHist/MenuHist";
 
-export default function Calculadora({valorModo}){
+export default function Calculadora({valorModo, valorMenu}){
     const [numero, setNumero] = useState('')
+    const [operacao, setOpercao] = useState('')
+    const [listaOperacoes, setListaOperacoes] = useState([])
     const [paren, setParen] = useState(false)
+
+    const formataConta = (numero) => {
+        return {id: new Date().getTime(), conta:`${numero} = ${eval(numero)}`}
+    }
 
     const mudaTexto = (id) => {
         if(id === 'C'){
             setNumero('')
+
+            // setConta('')
+
             setParen(true)
         } else if(id === 'D'){
             if(numero !== 'Erro'){
                 setNumero( prevNumero => prevNumero.replace(prevNumero[prevNumero.length-1], ''))
-            }
-        } else if(id === '='){
-            try{
-                setNumero(String(eval(numero)))
-                setParen(false)
-            } catch(err) {
-                setNumero('Erro')
             }
         } else if(id === '()'){
             if(paren){
@@ -31,14 +34,25 @@ export default function Calculadora({valorModo}){
                 setNumero((prevNumero) => prevNumero.concat(')'))
                 setParen(true)
             }
+        } else if(id === '='){
+            try{
+                setOpercao(formataConta(numero))
+
+                setNumero(String(eval(numero)))
+                
+                setListaOperacoes((arr) => [...arr, formataConta(numero)])
+                setParen(false)
+            } catch(err) {
+                setNumero('Erro')
+            }
         } else{
             setNumero((prevNumero) => prevNumero.concat(id))
         }
-
    }
 
     return (
-        <View >
+        <View>
+            { valorMenu ? <MenuHist valorModo={valorModo} listaContas={listaOperacoes}/> : <View >
             <View style={styles.inputContent}>
                 <Text style={valorModo ? styles.textoInputClaro : styles.textoInputEscuro}>{numero}</Text>
             </View>
@@ -73,6 +87,8 @@ export default function Calculadora({valorModo}){
                 <Botao valorModo={valorModo} aperta={() => mudaTexto('.')} id={'.'} operador={' .'}/>
                 <Botao valorModo={valorModo} aperta={() => mudaTexto('=')} id={'='} operador={'='}/>
             </View>
+        </View>}
         </View>
+        
     )
 }

@@ -8,23 +8,16 @@ import calc from '../../assets/calculadora.png'
 import modoEscuro from '../../assets/lua-crescente.png'
 import modoClaro from '../../assets/sol.png'
 
-export default function Header({alterarModo, valorModo}){
-
-
-    const exibirHistorico = () => {
-        console.log('oi')
-    }
-
-
+export default function Header({alterarModo, valorModo, alteraMenu, valorMenu = true}){
     return(
         <View style={styles.content}>
             <Text
             style={valorModo ? styles.textClaro : styles.textEscuro}>Calculadora</Text>
             <View style={styles.contentShield}>
-                <TouchableOpacity onPress={exibirHistorico}>
+                <TouchableOpacity onPress={alteraMenu}>
                     <Image  
                     style={styles.icone} 
-                    source={relogio}/>
+                    source={valorMenu ? relogio : calc}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={alterarModo}>
                     <Image

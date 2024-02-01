@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '10%',
         flexDirection: 'row',
-        gap: 65
+        gap: 65,
+        position: 'fixed'
     }, 
     contentShield: {
         flexDirection: 'row',
