@@ -1,8 +1,13 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    texto: {
+    textoEscuro: {
         color: 'white',
+        fontWeight: 'bold',
+        fontSize: 20,
+    },
+    textoClaro: {
+        color: 'black',
         fontWeight: 'bold',
         fontSize: 20,
     },

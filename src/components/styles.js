@@ -10,22 +10,29 @@ const styles = StyleSheet.create({
         padding: 10,
         justifyContent: 'center',
     },
-    textoInput: {
+    textoInputEscuro: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 30,
     },
-    linha: {
+    textoInputClaro: {
+        color: 'black',
+        fontWeight: 'bold',
+        fontSize: 30,
+    },
+    linhaEscuro: {
         marginLeft: 20,
         width: '90%',
         borderBottomColor: 'white',
         borderBottomWidth: 0.5
 
     },
-    texto: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 20,
+    linhaClaro: {
+        marginLeft: 20,
+        width: '90%',
+        borderBottomColor: 'black',
+        borderBottomWidth: 0.5
+
     },
     content: {
         width: '90%',
@@ -33,15 +40,6 @@ const styles = StyleSheet.create({
         marginTop:40,
         marginLeft:20,
         gap: 43.5,
-    },
-    botao1: {
-        backgroundColor: '#005C4B',
-        width: 60,
-        height: 60,
-        paddingLeft: 23,
-        paddingTop: 16,
-        borderRadius: 20,
-
     },
 })
 

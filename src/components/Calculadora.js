@@ -4,7 +4,7 @@ import Botao from "./botao/Botao";
 
 import styles from "./styles";
 
-export default function Calculadora(){
+export default function Calculadora({valorModo}){
     const [numero, setNumero] = useState('')
     const [paren, setParen] = useState(false)
 
@@ -40,38 +40,38 @@ export default function Calculadora(){
     return (
         <View >
             <View style={styles.inputContent}>
-                <Text style={styles.textoInput}>{numero}</Text>
+                <Text style={valorModo ? styles.textoInputClaro : styles.textoInputEscuro}>{numero}</Text>
             </View>
-            <Text style={styles.linha}></Text>
+            <Text style={valorModo ? styles.linhaClaro : styles.linhaEscuro}></Text>
             <View style={styles.content}>
-                <Botao aperta={() => mudaTexto('C')} id={'C'} operador={'C'}/>
-                <Botao aperta={() => mudaTexto('()')} id={'()'} operador={'()'}/>
-                <Botao aperta={() => mudaTexto('%')} id={'%'} operador={'%'}/>
-                <Botao aperta={() => mudaTexto('/')} id={'/'} operador={' /'}/>
-            </View>
-            <View style={styles.content}>
-                <Botao aperta={() => mudaTexto('7')} id={'7'} operador={'7'}/>
-                <Botao aperta={() => mudaTexto('8')} id={'8'} operador={'8'}/>
-                <Botao aperta={() => mudaTexto('9')} id={'9'} operador={'9'}/>
-                <Botao aperta={() => mudaTexto('*')} id={'*'} operador={'*'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('C')} id={'C'} operador={'C'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('()')} id={'()'} operador={'()'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('%')} id={'%'} operador={'%'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('/')} id={'/'} operador={' /'}/>
             </View>
             <View style={styles.content}>
-                <Botao aperta={() => mudaTexto('4')} id={'4'} operador={'4'}/>
-                <Botao aperta={() => mudaTexto('5')} id={'5'} operador={'5'}/>
-                <Botao aperta={() => mudaTexto('6')} id={'6'} operador={'6'}/>
-                <Botao aperta={() => mudaTexto('-')} id={'-'} operador={' -'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('7')} id={'7'} operador={'7'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('8')} id={'8'} operador={'8'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('9')} id={'9'} operador={'9'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('*')} id={'*'} operador={'*'}/>
             </View>
             <View style={styles.content}>
-                <Botao aperta={() => mudaTexto('1')} id={'1'} operador={'1'}/>
-                <Botao aperta={() => mudaTexto('2')} id={'2'} operador={'2'}/>
-                <Botao aperta={() => mudaTexto('3')} id={'3'} operador={'3'}/>
-                <Botao aperta={() => mudaTexto('+')} id={'+'} operador={'+'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('4')} id={'4'} operador={'4'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('5')} id={'5'} operador={'5'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('6')} id={'6'} operador={'6'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('-')} id={'-'} operador={' -'}/>
             </View>
             <View style={styles.content}>
-                <Botao aperta={() => mudaTexto('D')} id={'D'} operador={'D'}/>
-                <Botao aperta={() => mudaTexto('0')} id={'0'} operador={'0'}/>
-                <Botao aperta={() => mudaTexto('.')} id={'.'} operador={' .'}/>
-                <Botao aperta={() => mudaTexto('=')} id={'='} operador={'='}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('1')} id={'1'} operador={'1'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('2')} id={'2'} operador={'2'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('3')} id={'3'} operador={'3'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('+')} id={'+'} operador={'+'}/>
+            </View>
+            <View style={styles.content}>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('D')} id={'D'} operador={'D'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('0')} id={'0'} operador={'0'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('.')} id={'.'} operador={' .'}/>
+                <Botao valorModo={valorModo} aperta={() => mudaTexto('=')} id={'='} operador={'='}/>
             </View>
         </View>
     )

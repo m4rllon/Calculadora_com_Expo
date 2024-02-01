@@ -1,36 +1,34 @@
+import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 import Calculadora from './src/components/Calculadora';
-
-import vasco from './src/assets/GBeNWY0WkAAO6e6.jpg'
+import Header from './src/components/header/Header';
 
 export default function App() {
+  const [modo, setModo] = useState(false)
+
+  const alterarModo = () => {
+    // false = escuro
+    setModo(!modo)
+    console.log(modo)
+  }
+
   return (
-    <View style={styles.container}>
-      <ImageBackground style={styles.imagem} source={vasco}>
-        <Text style={styles.text}>CALCULADORA</Text>
-      </ImageBackground>
-      <Calculadora/>
+    <View style={modo ? styles.containerClaro : styles.containerEscuro}>
+      <Header alterarModo={alterarModo} valorModo={modo}/>
+      <Calculadora valorModo={modo}/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerEscuro: {
     flex: 1,
     backgroundColor: 'black',
     // alignItems: 'center',
     // justifyContent: 'center',
   },
-  text: {
-    color:'black',
-    fontWeight: 'bold',
-    fontSize: 30,
-    height: 100,
-    paddingTop: 30,
-    paddingLeft: 95,
-  },
-  imagem: {
-    width: '100%',
-    height: 100,
+  containerClaro: {
+    flex: 1,
+    backgroundColor: 'white',
   }
 });
