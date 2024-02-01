@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
         width: '90%',
         flexDirection: 'row',
         marginTop:40,
-        marginLeft:20,
-        gap: 43.5,
+        marginLeft:25,
+        gap: 40,
     },
 })
 

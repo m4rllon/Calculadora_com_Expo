@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     botao1: {
-        backgroundColor: '#005C4B',
         width: 60,
         height: 60,
         paddingLeft: 23,
         paddingTop: 16,
-        borderRadius: 20,
-
+        borderRadius: 90,
+        borderColor: '#56423B',
+        borderWidth: 1
     },
 })
 

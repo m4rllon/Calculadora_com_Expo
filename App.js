@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Calculadora from './src/components/Calculadora';
 import Header from './src/components/header/Header';
 
